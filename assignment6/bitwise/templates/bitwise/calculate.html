@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitwise Calculation</title>
+</head>
+<body>
+    <h1>Bitwise Calculation</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Calculate</button>
+    </form>
+
+    {% if warning %}
+        <p style="color:red;">{{ warning }}</p>
+    {% endif %}
+
+    {% if result %}
+        <h2>Results</h2>
+        <p><strong>Original List:</strong> {{ result.original_list }}</p>
+        <p><strong>Average:</strong> {{ result.average }}</p>
+        <p><strong>Average > 50:</strong> {{ result.avg_above_50 }}</p>
+        <p><strong>Positive Count:</strong> {{ result.positive_count }}</p>
+        <h3>Even/Odd (Bitwise)</h3>
+        <ul>
+            {% for text in result.even_or_odd_bitwise %}
+                <li>{{ text }}</li>
+            {% endfor %}
+        </ul>
+        <p><strong>Sorted List (values > 10):</strong> {{ result.sorted_list }}</p>
+    {% endif %}
+</body>
+</html>
