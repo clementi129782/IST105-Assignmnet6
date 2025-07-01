@@ -67,7 +67,7 @@ def calculate_view(request):
     else:
         form = NumberForm()
 
-    return render(request, 'Bitwise/calculate.html', {
+    return render(request, 'bitwise/calculate.html', {
         'form': form,
         'result': result,
         'warning': warning,
